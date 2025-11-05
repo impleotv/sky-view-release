@@ -8,7 +8,7 @@ if (args.length === 0) {
   console.log('Please enter a version number');
 }
 
-const pjsonServer = JSON.parse(fs.readFileSync('./components/package-server.json', 'utf8'));
+const pjsonServer = "0.2.1";
 
 let DATA = {
   version: pjsonServer.version,
