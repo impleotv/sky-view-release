@@ -1,13 +1,12 @@
 name: OnPushNewVersion
 
-
-
 on:
   push:
     tags:
       - 'v*'
   workflow_dispatch:
 
+# allow pushing with GITHUB_TOKEN
 permissions:
   contents: write
 
@@ -16,8 +15,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout code (default branch)
         uses: actions/checkout@v4
+        with:
+          # ensures we're on a branch, not detached at the tag
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
 
       - name: Checkout sky-view
         uses: actions/checkout@v4
@@ -36,18 +39,12 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Ensure secondary checkout landed
           test -f skyview/CHANGELOG.md || { echo "Missing skyview/CHANGELOG.md"; exit 1; }
 
-          # Copy files to repo root
           cp skyview/CHANGELOG.md CHANGELOG.md
           cp skyview/docker-compose.yml docker-compose.yml || true
 
-          # Prepare installDist
           mkdir -p skyview/installDist
-
-          # Package a directory that exists (adjust if needed)
-          # If you intended another folder, change "skyview/scripts" below.
           if [ -d skyview/scripts ]; then
             ( cd skyview/scripts && tar -czvf ../installDist/skyview-install.tar.gz . )
             cp skyview/installDist/skyview-install.tar.gz .
@@ -66,7 +63,7 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: Cache dependencies and build outputs to improve workflow execution time
+      - name: Cache dependencies and build outputs
         uses: actions/cache@v4
         with:
           path: node_modules
@@ -89,10 +86,12 @@ jobs:
       - name: Generate README file
         run: node index.js ${{ env.RELEASE_VERSION }}
 
-      - name: Commit and Push new README.md to the repository
-        uses: mikeal/publish-to-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Commit and push changes to the default branch (master/main)
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: automated publish for ${{ env.RELEASE_VERSION }}"
+          branch: ${{ github.event.repository.default_branch }}
 
       - name: Create release
         uses: ncipollo/release-action@v1
