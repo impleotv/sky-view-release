@@ -91,7 +91,7 @@ Current server version uses the following components:
 
 Without a license, SkyView application will operate in demo mode with certain restrictions. To remove these limitations, you need to obtain a license and upload it through the application's user interface.
 
-![License](../images/server-config-license.png)
+![License](./images/server-config-license.png)
 
 
 ### License options
@@ -121,9 +121,7 @@ If the computer is offline or you’re unable to copy and paste the Node Info fo
 
 To obtain a license, please contact ImpleoTV support and provide the Node Info string, which can be found in the License dialog.
 
-![License upload](../images/server-config-license-upload.png)
-
-
+![License upload](./images/server-config-license-upload.png)
 
 
 
