@@ -79,7 +79,7 @@ Additional installation instructions can be found [here](hhttps://impleotv.com/c
 *Released on 2025-11-05*
 
 
-!!! note "Editing the Docker Compose File"  
+⚠️ *Editing the Docker Compose File*  
     The docker-compose.yml file included with the installation contains a preconfigured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
 
