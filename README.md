@@ -20,7 +20,7 @@ More [info](https://impleotv.com/content/skyview/help/).
 OS: Linux x64.
 
 ## Installation (using Docker Compose)
-*Sky View** is a STANAG 4609 player that ships as a single Docker container with an embedded web UI. Once deployed, you can access the interface from any browser and optionally install it as a Progressive Web App (PWA) for offline use and a native-like experience.
+**Sky View** is a STANAG 4609 player that ships as a single Docker container with an embedded web UI. Once deployed, you can access the interface from any browser and optionally install it as a Progressive Web App (PWA) for offline use and a native-like experience.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ Additional installation instructions can be found [here](hhttps://impleotv.com/c
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v0.2.2 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/vv0.2.2/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v0.2.2 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.2.2/sky-view-install.tar.gz)  | 
 
 
 *Released on 2025-11-05*
