@@ -66,9 +66,6 @@ That's it! For more deployment options and configuration details, see [Running S
 
 ---
 
-Additional installation instructions can be found [here](hhttps://impleotv.com/content/skyview/help/user-guide/getting-started.html)
-
-
 ## Direct Download link
 
 |          | Version             | Download link                                                           | 
@@ -78,10 +75,9 @@ Additional installation instructions can be found [here](hhttps://impleotv.com/c
 
 *Released on 2025-11-05*
 
+> ⚠️ The docker-compose.yml file included with the installation contains a preconfigured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
-⚠️ *Editing the Docker Compose File*  
-    The docker-compose.yml file included with the installation contains a preconfigured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
-
+---
 
 ## License
 
