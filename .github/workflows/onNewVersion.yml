@@ -17,10 +17,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v1
 
-      - name: Checkout skyview
+      - name: Checkout sky-view
         uses: actions/checkout@v2
         with:
-          repository: impleotv/skyview
+          repository: impleotv/sky-view
           token: ${{ secrets.TOKEN }}
           path: ./skyview
        
