@@ -7,32 +7,76 @@
 
 # SkyView
 
-The **STANAG On Demand Server** is a platform that delivers on-demand and live Full Motion Video (FMV) as well as geospatial metadata to video analysts and field operators. 
-This service helps them easily access, analyze, and present mission-critical information, enabling faster decision-making and improved situational awareness. 
-The server is designed to support NATO's Standardization Agreement (STANAG) requirements, ensuring compatibility with a range of military systems and applications. 
-The server enhances the ability of analysts and operators to effectively monitor and respond to dynamic situations. 
-With the **STANAG On Demand Server**, organizations can benefit from a comprehensive, scalable, and reliable solution for managing video and geospatial data.
-More [info](https://impleotv.com/products/stanagondemand-server/).
+**SkyView** is a web application designed for live playback and analysis of **STANAG 4609** video streams.  
+Built as a Progressive Web Application (**PWA**), SkyView can run seamlessly on your **local host**, **local network**, or in the
+**cloud** and can even be installed as a desktop app for standalone use.
+
+![SkyView](./images/main.jpg)
+
+More [info](https://impleotv.com/content/skyview/help/).
 
 ## System Requirements
 
 OS: Linux x64.
 
 ## Installation (using Docker Compose)
+*Sky View** is a STANAG 4609 player that ships as a single Docker container with an embedded web UI. Once deployed, you can access the interface from any browser and optionally install it as a Progressive Web App (PWA) for offline use and a native-like experience.
+
+## Prerequisites
+
+- **Docker** 24+ installed on your system
+  - Linux: Native Docker Engine
+  - Windows: Docker Desktop (with limitations on multicast support) or VM
+- **Docker Compose** (recommended for easier management)
+
+## Quick Start
+
+The fastest way to get Sky View running:
+
+**Create a `docker-compose.yml` file:**  
+```yaml  
+  services:
+    sky-view:
+      image: impleo/sky-view:latest
+      network_mode: host
+      environment:
+        SKY_VIEW_SERVER_ADDR: ":8100"
+        SKY_VIEW_DB_PATH: "/data/sky-view.db"
+      volumes:
+        - sky-view-data:/data
+      restart: unless-stopped
+
+  volumes:
+    sky-view-data:
+```
+
+> ℹ️ For multicast UDP stream support, Sky View requires `network_mode: host`, which is only available on Linux. Docker Desktop (Mac/Windows) has limited multicast capabilities.
 
 
+**Start the container:**
+```bash
+  docker compose up -d
+```
 
-Installation instructions can be found [here](https://www.impleotv.com/content/stserver2/help/user-guide/installation/)
+**Access the UI:**
+
+Open your browser and navigate to `http://localhost:8100`
+
+That's it! For more deployment options and configuration details, see [Running Sky View with Docker](./running-docker.md).
+
+---
+
+Additional installation instructions can be found [here](hhttps://impleotv.com/content/skyview/help/user-guide/getting-started.html)
 
 
 ## Direct Download link
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  3.0.7 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.0.0/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  0.2.1 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.2.1/sky-view-install.tar.gz)  | 
 
 
-*Released on Wed, 24 Sept 2025, 12:34 GMT+3*
+*Released on Wed, 5 Nov 2025, 15:45 GMT+2*
 
 ## Components versions
 
@@ -40,36 +84,26 @@ Current server version uses the following components:
 
 |                  | Version             | CHANGELOG                                                          | 
 |:-----------------|:-------------------:|:------------------------------------------------------------------------|
-| **Backend**      |  3.0.7 | [CHANGELOG-SERVER.md](./CHANGELOG-SERVER.md) | 
-| **Frontend**     |  3.0.10 | [CHANGELOG-FRONTEND.md](./CHANGELOG-FRONTEND.md) | 
-| **FrontendComp** |  1.11.11 | [CHANGELOG-FRONTEND-COMP.md](./CHANGELOG-FRONTEND-COMP.md) | 
-  
-
-## Mission uploader
-
-StServer [mission uploader](https://www.impleotv.com/content/stserver2/help/utilities/stserver-uploader/) utility:  
-
-|                  |  CHANGELOG                                                          | 
-|:-----------------|:------------------------------------------------------------------------|
-| **Mission uploader (Windows x64)**      |  [stserveruploader.zip](https://impleotv.com/content/stserver2/stserveruploader/stserveruploader.zip) | 
-| **Mission uploader (Linux x64)**        |  [stserveruploader.gz](https://impleotv.com/content/stserver2/stserveruploader/stserveruploader.gz) | 
+| **Backend**      |  0.2.1 | [CHANGELOG-SERVER.md](./CHANGELOG-SERVER.md) | 
   
 
 ## License
 
-**STANAG On Demand Server** is a node locked software, so without license it will work in demo mode (with restrictions). 
+Without a license, SkyView application will operate in demo mode with certain restrictions. To remove these limitations, you need to obtain a license and upload it through the application's user interface.
+
+![License](../images/server-config-license.png)
+
 
 ### License options
 
-StServer optional features are enabled by License
+SkyView optional features are enabled by License
 
 Options:  
 
-- **VOD** - basic license. File upload and video on demand services  
-- **Live** - live stream playback  
-- **Multi sensor** - multi-sensor platform support  
-- **Number of concurrent users** - number of allowed concurrent clients 
-- **VOD for StPlayer** - One web client and unlimited number of StPlayer clients.  This one is usually for on VOD playback only  
+**User & Group Management** - Built-in **JWT-based authentication and authorization** system for secure and controlled access.
+**SRT playback** - Secure Reliable Transport (SRT) support
+
+
 
 ### Getting license
 
@@ -81,48 +115,23 @@ If the computer is offline or you’re unable to copy and paste the Node Info fo
 
 *Please note that licenses will be issued after the product has been purchased.*
 
-![Node Info](./images/licenseInfo.png)
 
-### Uploading license
-You will receive a license file (with the .lic extension). Drag and drop it into the ***Upload*** dropzone (or select the file).  
 
-![Upload license](./images/licenseUpload.png)  
-You can review the allowed options in the **Options** tab.
+## Getting the license
 
-> *Your license file is a JWT token. You can see it's content by opening the .lic file in any JWT viewer,  
-> for example [JWT.io](https://jwt.io).*
+To obtain a license, please contact ImpleoTV support and provide the Node Info string, which can be found in the License dialog.
 
-### License file location
+![License upload](../images/server-config-license-upload.png)
 
-Licenses are stored in the folder specified in the .env file and are automatically mounted by the server's Docker container.  
-```
-LICENSE_DIR=${HOME}/licenses/stserver/
-```
-It is also possible to simply copy the license to this directory.
 
-> **Note:**  
-Make sure that the server has an access rights to read and write to this directory.  
-Also, only keep one copy of the license file, the server will use the first one found.
+
 
 
 ---
 
 ## Known issues
 
-- In the version 2.7.1 mongodb was downgraded to version 4.4.18 to allow runnning in the VM. If you're not using VM and have a more recent mongodb version, you can change 
-
-```
-  mongodb:
-    image: mongo:4.4.18
-```   
-to 
-```
-  mongodb:
-    image: mongo
-```    
-You should also do this if you're upgrading the server version and have your DB created with a more recent mongodb version, otherwise it won't work.
-
-- If not restarted after install, first mission upload may fail. Delete the mission and upload again.
+In the Firefox browser, pop-up windows (KLV and Map) may sometimes open blank. To resolve this, try touching or resizing your main application window.
 
 ----  
 *Please don't hesitate to contact us at support@impleotv.com should you have any question.*

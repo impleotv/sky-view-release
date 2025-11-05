@@ -1,0 +1,31 @@
+services:
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    network_mode: host
+    # ports:
+    #   - "80:80"
+    #   - "443:443"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./data:/data
+      - ./config:/config
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - sky-view
+    restart: unless-stopped
+
+  sky-view:
+    image: impleo/sky-view:0.2.2
+    # Host network required for UDP multicast support
+    network_mode: host
+    environment:
+      SKY_VIEW_SERVER_ADDR: ":8100"
+      SKY_VIEW_DB_PATH: "/data/sky-view.db"
+    volumes:
+      - sky-view-data:/data
+    restart: unless-stopped
+
+volumes:
+  sky-view-data:
