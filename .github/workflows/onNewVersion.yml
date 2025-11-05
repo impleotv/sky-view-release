@@ -15,30 +15,43 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
 
       - name: Checkout sky-view
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: impleotv/sky-view
           token: ${{ secrets.TOKEN }}
-          path: ./skyview
-       
+          path: ./skyview       
       - name: Copy CHANGELOG.md from skyview and create install
-        run: |        
-          cp ./skyview/CHANGELOG.md ./CHANGELOG.md 
-          cp ./skyview/docker-compose.yml ./docker-compose.yml
-          mkdir ./skyview/installDist
-          cd ./skyview/install
-          tar -czvf ../installDist/skyview-install.tar.gz . 
-          sleep 5               
-          cd ../../
-          cp ./skyview/installDist/skyview-install.tar.gz  ./                 
-          
-      - name: List files in the repository and clean up
+        working-directory: ${{ github.workspace }}
         run: |
-          tree -L 2 ${{ github.workspace }}
-          rm -rf ./skyview
+          # Fail early if the secondary checkout didn't land
+          test -f skyview/CHANGELOG.md || { echo "Missing skyview/CHANGELOG.md"; exit 1; }
+
+          cp skyview/CHANGELOG.md CHANGELOG.md
+          cp skyview/docker-compose.yml docker-compose.yml
+
+          mkdir -p skyview/installDist
+
+          # If you really intend to tar ./skyview/install, make sure it exists
+          if [ -d skyview/install ]; then
+            ( cd skyview/install && tar -czvf ../installDist/skyview-install.tar.gz . )
+          else
+            echo "WARN: skyview/install not found. Skipping packaging."
+            # If you meant some other folder, replace the path below accordingly, e.g. skyview/scripts or skyview/web
+            # ( cd skyview/scripts && tar -czvf ../installDist/skyview-install.tar.gz . )
+          fi
+
+          # Copy artifact if it exists
+          if [ -f skyview/installDist/skyview-install.tar.gz ]; then
+            cp skyview/installDist/skyview-install.tar.gz .
+          fi                
+                
+            - name: List files in the repository and clean up
+              run: |
+                tree -L 2 ${{ github.workspace }}
+                rm -rf ./skyview
 
       - name: List files in the repository
         run: |
@@ -63,10 +76,6 @@ jobs:
           echo ${{ env.RELEASE_VERSION }}       
       - name: Generate README file
         run: node index.js ${{env.RELEASE_VERSION }}
-
-      # - name: Clean up
-      #   run: |
-      #     rm -rf ./components
 
       - name: Commit and Push new README.md to the repository
         uses: mikeal/publish-to-github-action@master
