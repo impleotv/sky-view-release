@@ -76,7 +76,7 @@ Additional installation instructions can be found [here](hhttps://impleotv.com/c
 | **SkyView (Linux x64)** |  0.2.1 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.2.1/sky-view-install.tar.gz)  | 
 
 
-*Released on Wed, 5 Nov 2025, 15:45 GMT+2*
+*Released on Wed, 5 Nov 2025, 15:52 GMT+2*
 
 ## Components versions
 
