@@ -4,15 +4,12 @@ on:
   push:
     tags:
       - 'v*'
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,38 +19,35 @@ jobs:
         with:
           repository: impleotv/sky-view
           token: ${{ secrets.TOKEN }}
-          path: ./skyview    
+          path: skyview
 
       - name: List files in the repository
         run: |
-          tree ${{ github.workspace }}
-      
+          tree -L 2 ${{ github.workspace }}
+
       - name: Copy CHANGELOG.md from skyview and create install
         working-directory: ${{ github.workspace }}
         shell: bash
         run: |
           set -euo pipefail
-      
-          # Fail early if the secondary checkout didn't land
+
+          # Ensure secondary checkout landed
           test -f skyview/CHANGELOG.md || { echo "Missing skyview/CHANGELOG.md"; exit 1; }
-      
+
+          # Copy files to repo root
           cp skyview/CHANGELOG.md CHANGELOG.md
-          cp skyview/docker-compose.yml docker-compose.yml
-      
+          cp skyview/docker-compose.yml docker-compose.yml || true
+
+          # Prepare installDist
           mkdir -p skyview/installDist
-      
-          # If you really intend to tar ./skyview/install, make sure it exists
-          if [ -d skyview/install ]; then
-            ( cd skyview/install && tar -czvf ../installDist/skyview-install.tar.gz . )
-          else
-            echo "WARN: skyview/install not found. Skipping packaging."
-            # If you meant another folder, replace the path below and uncomment:
-            # ( cd skyview/scripts && tar -czvf ../installDist/skyview-install.tar.gz . )
-          fi
-      
-          # Copy artifact if it exists
-          if [ -f skyview/installDist/skyview-install.tar.gz ]; then
+
+          # Package a directory that exists (adjust if needed)
+          # If you intended another folder, change "skyview/scripts" below.
+          if [ -d skyview/scripts ]; then
+            ( cd skyview/scripts && tar -czvf ../installDist/skyview-install.tar.gz . )
             cp skyview/installDist/skyview-install.tar.gz .
+          else
+            echo "WARN: skyview/scripts not found. Skipping packaging."
           fi
 
       - name: List files in the repository and clean up
@@ -61,35 +55,43 @@ jobs:
         run: |
           tree -L 2 .
           rm -rf ./skyview
-      
-            - name: Setup NodeJs 18.x
-              uses: actions/setup-node@v1
-              with:
-                node-version: '18.x'
-            - name: Cache dependencies and build outputs to improve workflow execution time.
-              uses: actions/cache@v4
-              with:
-                path: node_modules
-                key: ${{ runner.os }}-js-${{ hashFiles('package-lock.json') }}
-            - name: Install dependencies
-              run: npm install
-            - name: Set env
-              run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-            - name: Test
-              run: |
-                echo $RELEASE_VERSION
-                echo ${{ env.RELEASE_VERSION }}       
-            - name: Generate README file
-              run: node index.js ${{env.RELEASE_VERSION }}
-      
-            - name: Commit and Push new README.md to the repository
-              uses: mikeal/publish-to-github-action@master
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-            - name: Create release    
-              uses: ncipollo/release-action@v1
-              with:
-                artifacts: "skyview-install.tar.gz, skyview-install-wsl.tar.gz, CHANGELOG.md"       
-                token: ${{ secrets.GITHUB_TOKEN }}
-              
+
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+
+      - name: Cache dependencies and build outputs to improve workflow execution time
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-js-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-js-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Set env
+        shell: bash
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Test
+        run: |
+          echo "$RELEASE_VERSION"
+          echo "${{ env.RELEASE_VERSION }}"
+
+      - name: Generate README file
+        run: node index.js ${{ env.RELEASE_VERSION }}
+
+      - name: Commit and Push new README.md to the repository
+        uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "skyview-install.tar.gz, CHANGELOG.md"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifactErrorsFailBuild: false
