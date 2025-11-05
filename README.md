@@ -11,7 +11,7 @@
 Built as a Progressive Web Application (**PWA**), SkyView can run seamlessly on your **local host**, **local network**, or in the
 **cloud** and can even be installed as a desktop app for standalone use.
 
-![SkyView](./images/main.jpg)
+![SkyView](./images/main.png)
 
 More [info](https://impleotv.com/content/skyview/help/).
 
