@@ -23,6 +23,11 @@ jobs:
           repository: impleotv/sky-view
           token: ${{ secrets.TOKEN }}
           path: ./skyview
+
+      - name: List files in the repository and clean up
+        run: |
+          tree -L 2 ${{ github.workspace }}
+          rm -rf ./skyview
        
       - name: Copy CHANGELOG.md from skyview and create install
         run: |        
