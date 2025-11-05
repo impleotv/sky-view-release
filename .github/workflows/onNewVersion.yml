@@ -22,7 +22,12 @@ jobs:
         with:
           repository: impleotv/sky-view
           token: ${{ secrets.TOKEN }}
-          path: ./skyview       
+          path: ./skyview    
+
+      - name: List files in the repository
+        run: |
+          tree ${{ github.workspace }}
+      
       - name: Copy CHANGELOG.md from skyview and create install
         working-directory: ${{ github.workspace }}
         run: |
