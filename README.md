@@ -78,18 +78,15 @@ Additional installation instructions can be found [here](hhttps://impleotv.com/c
 
 *Released on 2025-11-05*
 
-## Components versions
 
-Current server version uses the following components:  
+!!! note "Editing the Docker Compose File"  
+    The docker-compose.yml file included with the installation contains a preconfigured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
-|                  | Version             | CHANGELOG                                                          | 
-|:-----------------|:-------------------:|:------------------------------------------------------------------------|
-| **Backend**      |  v0.2.2 | [CHANGELOG-SERVER.md](./CHANGELOG-SERVER.md) | 
-  
 
 ## License
 
-Without a license, SkyView application will operate in demo mode with certain restrictions. To remove these limitations, you need to obtain a license and upload it through the application's user interface.
+Without a license, SkyView application will operate in demo mode with certain restrictions.  
+To remove these limitations, you need to obtain a license and upload it through the application's user interface.
 
 ![License](./images/server-config-license.png)
 
@@ -100,9 +97,8 @@ SkyView optional features are enabled by License
 
 Options:  
 
-**User & Group Management** - Built-in **JWT-based authentication and authorization** system for secure and controlled access.
+**User & Group Management** - Built-in **JWT-based authentication and authorization** system for secure and controlled access.  
 **SRT playback** - Secure Reliable Transport (SRT) support
-
 
 
 ### Getting license
@@ -117,12 +113,11 @@ If the computer is offline or you’re unable to copy and paste the Node Info fo
 
 
 
-## Getting the license
+## Uploading license
 
-To obtain a license, please contact ImpleoTV support and provide the Node Info string, which can be found in the License dialog.
+To upload your license, use the application’s user interface — either drag and drop the license file into the designated area, or click “Select file” to browse and choose the license file manually.
 
 ![License upload](./images/server-config-license-upload.png)
-
 
 
 ---
