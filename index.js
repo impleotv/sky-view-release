@@ -8,10 +8,9 @@ if (args.length === 0) {
   console.log('Please enter a version number');
 }
 
-const pjsonServer = "0.2.1";
 
 let DATA = {
-  version: pjsonServer.version,
+  version: "0.2.1",
   date: new Date().toLocaleDateString('en-IL', {
     weekday: 'short',
     month: 'short',
