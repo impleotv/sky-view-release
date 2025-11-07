@@ -70,10 +70,10 @@ That's it! For more deployment options and configuration details, see [Running S
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v0.2.2 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.2.2/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v0.3.3 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.3.3/sky-view-install.tar.gz)  | 
 
 
-*Released on 2025-11-05*
+*Released on 2025-11-07*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a preconfigured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
