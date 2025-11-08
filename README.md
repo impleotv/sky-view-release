@@ -7,9 +7,8 @@
 
 # SkyView
 
-**SkyView** is a web application designed for live playback and analysis of **STANAG 4609** video streams.  
-Built as a Progressive Web Application (**PWA**), SkyView can run seamlessly on your **local host**, **local network**, or in the
-**cloud** and can even be installed as a desktop app for standalone use.
+**SkyView** is a web application designed for live playback and analysis of **STANAG 4609** video streams.
+Built as a Progressive Web Application (**PWA**), SkyView can run seamlessly on your **localhost**, **local network**, or in the **cloud**, and can even be installed as a desktop app for standalone use.
 
 ![SkyView](./images/main.png)
 
@@ -20,18 +19,18 @@ More [info](https://impleotv.com/content/skyview/help/).
 OS: Linux x64.
 
 ## Installation (using Docker Compose)
-**Sky View** is a STANAG 4609 player that ships as a single Docker container with an embedded web UI. Once deployed, you can access the interface from any browser and optionally install it as a Progressive Web App (PWA) for offline use and a native-like experience.
+**SkyView** is a STANAG 4609 player that ships as a single Docker container with an embedded web UI. Once deployed, you can access the interface from any browser and optionally install it as a Progressive Web App (PWA) for offline use and a native-like experience.
 
 ## Prerequisites
 
-- **Docker** 24+ installed on your system
+ - **Docker** 24+ installed on your system
   - Linux: Native Docker Engine
   - Windows: Docker Desktop (with limitations on multicast support) or VM
 - **Docker Compose** (recommended for easier management)
 
 ## Quick Start
 
-The fastest way to get Sky View running:
+The fastest way to get SkyView running:
 
 **Create a `docker-compose.yml` file:**  
 ```yaml  
@@ -50,7 +49,7 @@ The fastest way to get Sky View running:
     sky-view-data:
 ```
 
-> ℹ️ For multicast UDP stream support, Sky View requires `network_mode: host`, which is only available on Linux. Docker Desktop (Mac/Windows) has limited multicast capabilities.
+> ℹ️ For multicast UDP stream support, SkyView requires `network_mode: host`, which is only available on Linux. Docker Desktop (Mac/Windows) has limited multicast capabilities.
 
 
 **Start the container:**
@@ -62,18 +61,18 @@ The fastest way to get Sky View running:
 
 Open your browser and navigate to `http://localhost:8100`
 
-That's it! For more deployment options and configuration details, see [Running Sky View with Docker](./running-docker.md).
+That's it! For more deployment options and configuration details, see [Running SkyView with Docker](./running-docker.md).
 
 ---
 
-## Direct Download link
+## Direct download link
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v0.3.3 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.3.3/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v0.4.0 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.4.0/sky-view-install.tar.gz)  | 
 
 
-*Released on 2025-11-07*
+*Released on 2025-11-08*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a preconfigured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
@@ -81,46 +80,56 @@ That's it! For more deployment options and configuration details, see [Running S
 
 ## License
 
-Without a license, SkyView application will operate in demo mode with certain restrictions.  
-To remove these limitations, you need to obtain a license and upload it through the application's user interface.
+Without a license, the SkyView application will operate in demo mode with certain restrictions.
+To remove these limitations, obtain a license and upload it through the application's user interface.
 
 ![License](./images/server-config-license.png)
 
 
 ### License options
 
-SkyView optional features are enabled by License
+SkyView optional features are enabled by a license:
 
-Options:  
+| Feature | Description |
+|---------|-------------|
+| **User & Group Management** | **JWT-based authentication and authorization** for secure and controlled access |
+| **SRT playback** | Secure Reliable Transport (**SRT**) protocol support |
 
-**User & Group Management** - Built-in **JWT-based authentication and authorization** system for secure and controlled access.  
-**SRT playback** - Secure Reliable Transport (SRT) support
+### License restrictions
+
+| Restriction | Description |
+|---------|-------------|
+| **MaxClients** | Maximum number of simultaneously connected clients |
+| **MaxStreams** | Maximum number of simultaneous streams|
 
 
-### Getting license
+
+### Obtaining a license
 
 To obtain a license, please follow these steps:
 
-- Install the server software on your target machine.  
-- Complete the [online form](https://docs.google.com/forms/d/e/1FAIpQLSd_XW6bDsFce1G1cpds4gMQNlwNax0CvkWzcMbscxZ5rLaIbA/viewform) and provide the **Node Info** string for the target machine (IMPORTANT!!!).  
-If the computer is offline or you’re unable to copy and paste the Node Info for any reason, please take a clear photo of the screen showing the QR code and send it to us.
+- Install the server software on your target machine.
+- Complete the [online form](https://docs.google.com/forms/d/e/1FAIpQLSd_XW6bDsFce1G1cpds4gMQNlwNax0CvkWzcMbscxZ5rLaIbA/viewform) and provide the **Node Info** string for the target machine (IMPORTANT).
+
+The Node Info string can be found in the License dialog. The GUI shows the Node Info in two equivalent forms: the full Node Info text and a QR code that encodes the same text. You can either copy and paste the Node Info string directly into your support message, or, if that's more convenient (for example during an offline installation), take a clear photo of the QR code and send the image to us. When using a photo, make sure the QR code is fully visible and in focus so it can be scanned reliably.
 
 *Please note that licenses will be issued after the product has been purchased.*
 
 
 
-## Uploading license
+## Uploading a license
 
 To upload your license, use the application’s user interface — either drag and drop the license file into the designated area, or click “Select file” to browse and choose the license file manually.
 
 ![License upload](./images/server-config-license-upload.png)
 
+After a successful license upload, you should see descriptive information about the license (for example, available options, license restrictions, expiration date, or scope). The detailed license content can be reviewed by clicking the "Show license" button in the dialog. Removing the license will bring the application back into demo mode and re-enable the associated limitations.
 
 ---
 
 ## Known issues
 
-In the Firefox browser, pop-up windows (KLV and Map) may sometimes open blank. To resolve this, try touching or resizing your main application window.
+In Firefox, pop-up windows (KLV and Map) may sometimes open blank. To resolve this, try touching or resizing your main application window.
 
-----  
-*Please don't hesitate to contact us at support@impleotv.com should you have any question.*
+
+*Please don't hesitate to contact us at support@impleotv.com should you have any questions.*
