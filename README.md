@@ -9,8 +9,8 @@
 
 **SkyView** is an application designed for live playback and analysis of **STANAG 4609** video streams.  
 Built as a Progressive Web Application (**PWA**), SkyView can run seamlessly on your **local host**, **local network**, or in the
-**cloud**, and can be installed as a cross-platform desktop app for standalone use.  
-Users can install the **SkyView** front-end player directly on mobile devices, enjoying a native-like experience.
+**cloud**.  
+Users can install the **SkyView** front-end player directly on their desktop, tablet or mobile devices, enjoying a native-like experience.
 
 ![SkyView](./images/main.png)
 
@@ -71,7 +71,7 @@ That's it! For more deployment options and configuration details, see [Running S
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v0.4.1 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.4.1/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v0.4.2 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.4.2/sky-view-install.tar.gz)  | 
 
 
 *Released on 2025-11-08*
