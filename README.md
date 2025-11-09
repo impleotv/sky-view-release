@@ -39,16 +39,17 @@ The fastest way to get SkyView running:
   services:
     sky-view:
       image: impleo/sky-view:latest
+      container_name: skyview
       network_mode: host
       environment:
         SKY_VIEW_SERVER_ADDR: ":8100"
         SKY_VIEW_DB_PATH: "/data/sky-view.db"
       volumes:
-        - sky-view-data:/data
+        - data:/data
       restart: unless-stopped
 
-  volumes:
-    sky-view-data:
+volumes:
+  data:
 ```
 
 > ℹ️ For multicast UDP stream support, SkyView requires `network_mode: host`, which is only available on Linux. Docker Desktop (Mac/Windows) has limited multicast capabilities.
@@ -71,10 +72,10 @@ That's it! For more deployment options and configuration details, see [Running S
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v0.4.2 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.4.2/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v0.6.1 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.6.1/sky-view-install.tar.gz)  | 
 
 
-*Released on 2025-11-08*
+*Released on 2025-11-09*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a preconfigured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
@@ -96,6 +97,7 @@ SkyView optional features are enabled by a license:
 |---------|-------------|
 | **User & Group Management** | **JWT-based authentication and authorization** for secure and controlled access |
 | **SRT playback** | Secure Reliable Transport (**SRT**) protocol support |
+| **Error detection** | MPEG-TS and KLV integrity issues |
 
 ### License restrictions
 
