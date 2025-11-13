@@ -72,7 +72,7 @@ That's it! For more deployment options and configuration details, see [Running S
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v0.6.5 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.6.5/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v0.6.6 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.6.6/sky-view-install.tar.gz)  | 
 
 
 *Released on 2025-11-13*
