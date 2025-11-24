@@ -36,25 +36,17 @@ OS: Linux x64.
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v0.7.5 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.7.5/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v0.7.6 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.7.6/sky-view-install.tar.gz)  | 
 
 
 *Released on 2025-11-24*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a pre-configured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
-
 1. Unzip the file sky-view-install.tar.gz  
 2. Edit (customize) the .env file  
-3. Start the container:  
-
-```bash
-  docker compose up -d
-```
-
-4. Access the UI:  
-
-Open your browser and navigate to `http://localhost:8100`
+3. Start the container - **docker compose up -d**
+4. Access the UI - Open your browser and navigate to [`http://localhost:8100`](`http://localhost:8100`)
 
 That's it! For more deployment options and configuration details, see [Running SkyView with Docker](./running-docker.md).
 
