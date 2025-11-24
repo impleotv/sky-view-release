@@ -32,20 +32,16 @@ OS: Linux x64.
 
 ## Quick Start
 
----
-
 ## Direct download link
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v0.7.4 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.7.4/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v0.7.5 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.7.5/sky-view-install.tar.gz)  | 
 
 
 *Released on 2025-11-24*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a pre-configured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
-
----
 
 
 1. Unzip the file sky-view-install.tar.gz  
@@ -79,7 +75,7 @@ SkyView optional features are enabled by a license:
 
 | Feature | Description |
 |---------|-------------|
-| **User & Group Management** | **JWT-based authentication and authorization** for secure and controlled access |
+| **User & Group Management** | **JWT-based** authentication and authorization for secure and controlled access |
 | **SRT playback** | Secure Reliable Transport (**SRT**) protocol support |
 | **Offline maps** | Download/Import maps and use them without Internet access |
 | **Error detection** | MPEG-TS and KLV integrity issues |
