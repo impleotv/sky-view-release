@@ -32,56 +32,38 @@ OS: Linux x64.
 
 ## Quick Start
 
-The fastest way to get SkyView running:
-
-**Create a `docker-compose.yml` file:**  
-```yaml  
-  services:
-    sky-view:
-      image: impleo/sky-view:latest
-      container_name: skyview
-      network_mode: host
-      environment:
-        SKY_VIEW_SERVER_ADDR: ":8100"
-        SKY_VIEW_SERVER_NAME: "${SKY_VIEW_SERVER_NAME}"
-        SKY_VIEW_SERVER_SHORT_NAME: "${SKY_VIEW_SERVER_SHORT_NAME}"
-        SKY_VIEW_DB_PATH: "/data/sky-view.db"
-      volumes:
-        - data:/data
-      restart: unless-stopped
-
-volumes:
-  data:
-```
-
-> ℹ️ For multicast UDP stream support, SkyView requires `network_mode: host`, which is only available on Linux. Docker Desktop (Mac/Windows) has limited multicast capabilities.
-
-
-**Start the container:**
-```bash
-  docker compose up -d
-```
-
-**Access the UI:**
-
-Open your browser and navigate to `http://localhost:8100`
-
-That's it! For more deployment options and configuration details, see [Running SkyView with Docker](./running-docker.md).
-
 ---
 
 ## Direct download link
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v0.7.3 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.7.3/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v0.7.4 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v0.7.4/sky-view-install.tar.gz)  | 
 
 
-*Released on 2025-11-23*
+*Released on 2025-11-24*
 
-> ⚠️ The docker-compose.yml file included with the installation contains a preconfigured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
+> ⚠️ The docker-compose.yml file included with the installation contains a pre-configured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
 ---
+
+
+1. Unzip the file sky-view-install.tar.gz  
+2. Edit (customize) the .env file  
+3. Start the container:  
+
+```bash
+  docker compose up -d
+```
+
+4. Access the UI:  
+
+Open your browser and navigate to `http://localhost:8100`
+
+That's it! For more deployment options and configuration details, see [Running SkyView with Docker](./running-docker.md).
+
+> ℹ️ For multicast UDP stream support, SkyView requires `network_mode: host`, which is only available on Linux. Docker Desktop (Mac/Windows) has limited multicast capabilities.
+
 
 ## License
 
@@ -99,6 +81,7 @@ SkyView optional features are enabled by a license:
 |---------|-------------|
 | **User & Group Management** | **JWT-based authentication and authorization** for secure and controlled access |
 | **SRT playback** | Secure Reliable Transport (**SRT**) protocol support |
+| **Offline maps** | Download/Import maps and use them without Internet access |
 | **Error detection** | MPEG-TS and KLV integrity issues |
 
 ### License restrictions
