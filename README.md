@@ -36,7 +36,7 @@ OS: Linux x64.
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v1.1.1 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.1.1/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v1.1.2 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.1.2/sky-view-install.tar.gz)  | 
 
 
 *Released on 2025-12-02*
