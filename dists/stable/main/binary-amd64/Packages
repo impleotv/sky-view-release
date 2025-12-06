@@ -5,9 +5,9 @@ Maintainer: SkyView Team <support@impleotv.com>
 Depends: docker.io | docker-ce | docker-engine, docker-compose-plugin | docker-compose, systemd, ca-certificates
 Filename: dist/apt/pool/main/sky-view_1.1.3_amd64.deb
 Size: 2378
-MD5sum: c67d7b571f3cfe8ee4122c6bb015e7fe
-SHA1: 5b26b1c02d32e939b1d2da87694e8619c2f43e39
-SHA256: 20b95cc367602896f03ef6570a3d5c3454e02af7273fd80fa08797af87d650b7
+MD5sum: 2efd2651e944ef2bce5af2743b679122
+SHA1: cb82c024cb24965849174aeaa898e98806e5633a
+SHA256: d4dbe8ad7237b9b21f01b71de246b7583adcbafb534a3addb6a748f7ee54188e
 Section: net
 Priority: optional
 Description: SkyView docker-compose bundle
