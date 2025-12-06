@@ -1,0 +1,7 @@
+Origin: SkyView
+Label: SkyView
+Suite: stable
+Codename: stable
+Architectures: amd64
+Components: main
+Description: SkyView APT repository
