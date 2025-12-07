@@ -39,7 +39,7 @@ OS: Linux x64.
 | **SkyView (Linux x64)** |  v1.1.3 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.1.3/sky-view-install.tar.gz)  | 
 
 
-*Released on 2025-12-06*
+*Released on 2025-12-07*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a pre-configured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
