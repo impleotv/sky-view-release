@@ -58,3 +58,18 @@ Priority: optional
 Description: SkyView docker-compose bundle
  SkyView packaged with Docker Compose and a systemd unit for host-managed deployments.
 
+Package: sky-view
+Version: 1.1.7
+Architecture: amd64
+Maintainer: SkyView Team <support@impleotv.com>
+Depends: docker.io | docker-ce | docker-engine, docker-compose-plugin | docker-compose, systemd, ca-certificates
+Filename: pool/main/sky-view_1.1.7_amd64.deb
+Size: 2790
+MD5sum: d5748646f8402fb191c3f449e6ce8f99
+SHA1: 81241974aead6647ecae03045ce9f389ae89c2a1
+SHA256: 2156d060b7040d0fc944e4e9a8d7c3b9e8764512bc02dcd8328b6a0683e19cf5
+Section: net
+Priority: optional
+Description: SkyView docker-compose bundle
+ SkyView packaged with Docker Compose and a systemd unit for host-managed deployments.
+
