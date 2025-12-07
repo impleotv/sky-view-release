@@ -4,10 +4,10 @@ Architecture: amd64
 Maintainer: SkyView Team <support@impleotv.com>
 Depends: docker.io | docker-ce | docker-engine, docker-compose-plugin | docker-compose, systemd, ca-certificates
 Filename: pool/main/sky-view_1.1.3_amd64.deb
-Size: 2380
-MD5sum: f2e4f293382a97c0e9cf1cecf76d6f18
-SHA1: cebb4b4f92c763405ca65da5b495ac04e7c5412b
-SHA256: 40d7635bbff1db7dd71c95c522ff371ae0c6b4a6f55e863209dbb7442afd36bb
+Size: 2670
+MD5sum: 5087cc561b1954229201c09706eee97f
+SHA1: 8d0da20d00135485d8321f935021251f17f601b4
+SHA256: dc3037c9f6fa60d959a16fd9f6fe3a5cab168b916edc858d36a6c57cc05d152b
 Section: net
 Priority: optional
 Description: SkyView docker-compose bundle
