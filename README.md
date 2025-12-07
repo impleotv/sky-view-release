@@ -32,12 +32,11 @@ OS: Linux x64.
 
 ## Quick Start
 
-## Direct download link
+### Direct download link (sky-view-install.tar.gz)
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v1.1.4 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.1.4/sky-view-install.tar.gz)  | 
-
+| **SkyView (Linux x64)** |  v1.1.5 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.1.5/sky-view-install.tar.gz)  | 
 
 *Released on 2025-12-07*
 
@@ -49,6 +48,67 @@ OS: Linux x64.
 4. Access the UI - Open your browser and navigate to [`http://localhost:8100`](`http://localhost:8100`)
 
 That's it! For more deployment options and configuration details, see [Running SkyView with Docker](./running-docker.md).
+
+
+
+### Option 2: Install from .deb Package  
+
+|          | Version             | Download link                                                           | 
+|:---------|:-------------------:|:------------------------------------------------------------------------|
+| **SkyView (Linux x64) .deb** |  v1.1.5 | [sky-view_v1.1.5_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.1.5/sky-view_1.1.5_amd64.deb)  | 
+
+
+- Download the `.deb` package:  
+```bash
+   wget https://github.com/impleotv/sky-view-release/releases/download/{{skyview_version}}/sky-view_1.1.5_amd64.deb
+```
+- Install the package:  
+```bash
+   sudo dpkg -i sky-view_1.1.5_amd64.deb
+   sudo apt-get install -f  # Install any missing dependencies
+```  
+> ⚠️ Note: During installation, the package will automatically download and install the required Docker containers.
+This process may take some time depending on your network speed.
+
+- Start SkyView (if not started automatically):  
+
+```bash
+   sudo systemctl start sky-view
+```
+
+Access the UI: Open your browser and navigate to [http://localhost:8100](http://localhost:8100)
+
+---
+
+### Option 3: Install via APT Repository
+
+- Download and install the GPG key first:  
+```bash
+   curl -sL https://impleotv.github.io/sky-view-release/sky-view-apt.gpg | sudo tee /usr/share/keyrings/skyview-archive-keyring.gpg > /dev/null
+```
+
+- Add the SkyView APT repository:  
+```bash
+   echo "deb [signed-by=/usr/share/keyrings/skyview-archive-keyring.gpg] https://impleotv.github.io/sky-view-release stable main" | sudo tee /etc/apt/sources.list.d/skyview.list
+```
+
+- Update package lists:  
+```bash
+   sudo apt-get update
+```
+
+- Install SkyView:  
+```bash
+   sudo apt-get install sky-view
+```
+
+
+> ⚠️ Note: During installation, the package will automatically download and install the required Docker containers.
+This process may take some time depending on your network speed.
+
+Access the UI: Open your browser and navigate to [http://localhost:8100](http://localhost:8100)
+
+---
 
 > ℹ️ For multicast UDP stream support, SkyView requires `network_mode: host`, which is only available on Linux. Docker Desktop (Mac/Windows) has limited multicast capabilities.
 
