@@ -36,9 +36,9 @@ OS: Linux x64.
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v1.1.8 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.1.8/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v1.1.9 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.1.9/sky-view-install.tar.gz)  | 
 
-*Released on 2025-12-07*
+*Released on 2025-12-08*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a pre-configured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
@@ -55,16 +55,16 @@ That's it! For more deployment options and configuration details, see [Running S
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64) .deb** |  v1.1.8 | [sky-view_v1.1.8_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.1.8/sky-view_1.1.8_amd64.deb)  | 
+| **SkyView (Linux x64) .deb** |  v1.1.9 | [sky-view_v1.1.9_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.1.9/sky-view_1.1.9_amd64.deb)  | 
 
 
 - Download the `.deb` package:  
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.1.8/sky-view_1.1.8_amd64.deb
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.1.9/sky-view_1.1.9_amd64.deb
 ```
 - Install the package:  
 ```bash
-sudo dpkg -i sky-view_1.1.8_amd64.deb
+sudo dpkg -i sky-view_1.1.9_amd64.deb
 sudo apt-get install -f  # Install any missing dependencies
 ```  
 > ⚠️ Note: During installation, the package will automatically download and install the required Docker containers.
