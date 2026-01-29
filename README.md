@@ -36,14 +36,14 @@ OS: Linux x64.
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v1.3.3 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.3.3/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v1.4.1 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.4.1/sky-view-install.tar.gz)  | 
 
-*Released on 2025-12-31*
+*Released on 2026-01-29*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a pre-configured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.3.3/sky-view-install.tar.gz
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.4.1/sky-view-install.tar.gz
 tar xzf sky-view-install.tar.gz
 docker compose up -d
 ```
@@ -61,16 +61,16 @@ That's it! For more deployment options and configuration details, see [Running S
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64) .deb** |  v1.3.3 | [sky-view_v1.3.3_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.3.3/sky-view_1.3.3_amd64.deb)  | 
+| **SkyView (Linux x64) .deb** |  v1.4.1 | [sky-view_v1.4.1_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.4.1/sky-view_1.4.1_amd64.deb)  | 
 
 
 - Download the `.deb` package:  
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.3.3/sky-view_1.3.3_amd64.deb
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.4.1/sky-view_1.4.1_amd64.deb
 ```
 - Install the package:  
 ```bash
-sudo dpkg -i sky-view_1.3.3_amd64.deb
+sudo dpkg -i sky-view_1.4.1_amd64.deb
 sudo apt-get install -f  # Install any missing dependencies
 ```  
 > ⚠️ Note: During installation, the package will automatically download and install the required Docker containers.
@@ -137,6 +137,7 @@ SkyView optional features are enabled by a license:
 | **SRT playback** | Secure Reliable Transport (**SRT**) protocol support |
 | **Offline maps** | Download/Import maps and use them without Internet access |
 | **Error detection** | MPEG-TS and KLV integrity issues |
+| **Stream recasting** | MPEG-TS and Data stream recasting |
 
 ### License restrictions
 
