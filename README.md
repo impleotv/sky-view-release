@@ -130,7 +130,7 @@ On Windows, SkyView is installed using the setup package:
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Windows x64)** |  v1.6.2 | [sky-view-win-v1.6.2-installer.zip](https://github.com/impleotv/sky-view-release/releases/download/v1.6.2/sky-view-win-1.6.2-installer.zip)  | 
+| **SkyView (Windows x64)** |  v1.6.2 | [sky-view-win-1.6.2-installer.zip](https://github.com/impleotv/sky-view-release/releases/download/v1.6.2/sky-view-win-1.6.2-installer.zip)  | 
 
 
 After installation, SkyView can run in two flavors:
