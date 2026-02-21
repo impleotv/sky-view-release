@@ -7,7 +7,7 @@
 
 # SkyView
 
-**SkyView** is an application designed for live playback and analysis of **STANAG 4609** video streams.  
+**SkyView** is an application designed for live playback, recasting and analysis of **STANAG 4609** / mpegts video streams.  
 Built as a Progressive Web Application (**PWA**), SkyView can run seamlessly on your **local host**, **local network**, or in the
 **cloud**.  
 Users can install the **SkyView** front-end player directly on their desktop, tablet or mobile devices, enjoying a native-like experience.
@@ -18,32 +18,33 @@ More [info](https://impleotv.com/content/skyview/help/).
 
 ## System Requirements
 
+### 🐧 Linux   
 OS: Linux x64.
 
-## Installation (using Docker Compose)
+#### Installation (using Docker Compose)
 **SkyView** is a STANAG 4609 player that ships as a single Docker container with an embedded web UI. Once deployed, you can access the interface from any browser and optionally install it as a Progressive Web App (PWA) for offline use and a native-like experience.
 
-## Prerequisites
+#### Prerequisites
 
  - **Docker** 24+ installed on your system
   - Linux: Native Docker Engine
   - Windows: Docker Desktop (with limitations on multicast support) or VM
 - **Docker Compose** (recommended for easier management)
 
-## Quick Start
+### Quick Start
 
-### Option 1: Install from tar.gz.  Direct download link (sky-view-install.tar.gz)
+#### Option 1: Install from tar.gz.  Direct download link (sky-view-install.tar.gz)
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v1.5.4 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.5.4/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v1.6.2 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.6.2/sky-view-install.tar.gz)  | 
 
-*Released on 2026-02-14*
+*Released on 2026-02-21*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a pre-configured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.5.4/sky-view-install.tar.gz
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.6.2/sky-view-install.tar.gz
 tar xzf sky-view-install.tar.gz
 docker compose up -d
 ```
@@ -57,20 +58,20 @@ That's it! For more deployment options and configuration details, see [Running S
 
 
 
-### Option 2: Install from .deb Package  
+#### Option 2: Install from .deb Package  
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64) .deb** |  v1.5.4 | [sky-view_v1.5.4_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.5.4/sky-view_1.5.4_amd64.deb)  | 
+| **SkyView (Linux x64) .deb** |  v1.6.2 | [sky-view_v1.6.2_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.6.2/sky-view_1.6.2_amd64.deb)  | 
 
 
 - Download the `.deb` package:  
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.5.4/sky-view_1.5.4_amd64.deb
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.6.2/sky-view_1.6.2_amd64.deb
 ```
 - Install the package:  
 ```bash
-sudo dpkg -i sky-view_1.5.4_amd64.deb
+sudo dpkg -i sky-view_1.6.2_amd64.deb
 sudo apt-get install -f  # Install any missing dependencies
 ```  
 > ⚠️ Note: During installation, the package will automatically download and install the required Docker containers.
@@ -86,7 +87,7 @@ Access the UI: Open your browser and navigate to [http://localhost:8100](http://
 
 ---
 
-### Option 3: Install via APT Repository
+#### Option 3: Install via APT Repository
 
 - Download and install the GPG key first:  
 ```bash
@@ -117,6 +118,46 @@ Access the UI: Open your browser and navigate to [http://localhost:8100](http://
 ---
 
 > ℹ️ For multicast UDP stream support, SkyView requires `network_mode: host`, which is only available on Linux. Docker Desktop (Mac/Windows) has limited multicast capabilities.
+
+
+## 🖥️ Windows
+
+### Prerequisites
+
+- Windows 10/11 (64bit)
+
+On Windows, SkyView is installed using the setup package:
+
+|          | Version             | Download link                                                           | 
+|:---------|:-------------------:|:------------------------------------------------------------------------|
+| **SkyView (Windows x64)** |  v1.6.2 | [sky-view-win-v1.6.2-amd64-installer_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.6.2/sky-view-win_1.6.2-installer_amd64.exe)  | 
+
+
+After installation, SkyView can run in two flavors:
+
+**Client/Server Mode**  
+
+In this mode, the backend server is started and clients can connect from a browser (locally or over the network).
+This is the full-featured deployment mode, providing access to all functionality and configuration options.
+
+Run:
+
+```powershell
+skyview-server.exe
+```
+
+**Desktop Mode** 
+
+In this mode, SkyView runs as a local Windows desktop application. It is intended for a single local user and is not designed for client connections from the network.
+
+Run:
+
+```powershell
+skyview-desktop.exe
+```
+⚠️ Important:  
+Desktop Mode does not expose all functionality. Some advanced features and configuration options are intentionally hidden or unavailable in this mode.  
+For full functionality, multi-user access, and complete configuration control, use Client/Server Mode.
 
 
 ## License
