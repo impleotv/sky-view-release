@@ -5,12 +5,14 @@
   </a>
 </div>
 
-# SkyView
+# SkyView player/recaster
 
 **SkyView** is an application designed for live playback, recasting and analysis of **STANAG 4609** / mpegts video streams.  
 Built as a Progressive Web Application (**PWA**), SkyView can run seamlessly on your **local host**, **local network**, or in the
 **cloud**.  
 Users can install the **SkyView** front-end player directly on their desktop, tablet or mobile devices, enjoying a native-like experience.
+
+SkyView is also available as a Windows desktop application.
 
 ![SkyView](./images/main.png)
 
@@ -37,14 +39,14 @@ OS: Linux x64.
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v1.6.5 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.6.5/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v1.6.6 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.6.6/sky-view-install.tar.gz)  | 
 
-*Released on 2026-02-22*
+*Released on 2026-02-23*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a pre-configured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.6.5/sky-view-install.tar.gz
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.6.6/sky-view-install.tar.gz
 tar xzf sky-view-install.tar.gz
 docker compose up -d
 ```
@@ -62,16 +64,16 @@ That's it! For more deployment options and configuration details, see [Running S
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64) .deb** |  v1.6.5 | [sky-view_v1.6.5_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.6.5/sky-view_1.6.5_amd64.deb)  | 
+| **SkyView (Linux x64) .deb** |  v1.6.6 | [sky-view_v1.6.6_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.6.6/sky-view_1.6.6_amd64.deb)  | 
 
 
 - Download the `.deb` package:  
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.6.5/sky-view_1.6.5_amd64.deb
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.6.6/sky-view_1.6.6_amd64.deb
 ```
 - Install the package:  
 ```bash
-sudo dpkg -i sky-view_1.6.5_amd64.deb
+sudo dpkg -i sky-view_1.6.6_amd64.deb
 sudo apt-get install -f  # Install any missing dependencies
 ```  
 > ⚠️ Note: During installation, the package will automatically download and install the required Docker containers.
@@ -130,7 +132,7 @@ On Windows, SkyView is installed using the setup package:
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Windows x64)** |  v1.6.5 | [sky-view-win-installer.zip](https://github.com/impleotv/sky-view-release/releases/download/v1.6.5/sky-view-win-installer.zip)  | 
+| **SkyView (Windows x64)** |  v1.6.6 | [sky-view-win-installer.zip](https://github.com/impleotv/sky-view-release/releases/download/v1.6.6/sky-view-win-installer.zip)  | 
 
 
 
