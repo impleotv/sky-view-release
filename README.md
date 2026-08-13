@@ -39,14 +39,14 @@ OS: Linux x64.
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v1.12.1 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.12.1/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v1.14.9 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.14.9/sky-view-install.tar.gz)  | 
 
-*Released on 2026-07-02*
+*Released on 2026-08-13*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a pre-configured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.12.1/sky-view-install.tar.gz
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.14.9/sky-view-install.tar.gz
 tar xzf sky-view-install.tar.gz
 docker compose up -d
 ```
@@ -58,22 +58,29 @@ docker compose up -d
 
 That's it! For more deployment options and configuration details, see [Running SkyView with Docker](./running-docker.md).
 
+The supplied Compose configuration binds Node Info to the Linux server's DMI
+hardware UUID. Rebuilding or updating the container on that server keeps the
+same Node Info, while copying the application and data to different hardware
+does not carry the license. An installation upgrading from an older,
+image-derived Node Info may require a one-time license reissue; subsequent
+updates remain stable.
+
 
 
 #### Option 2: Install from .deb Package  
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64) .deb** |  v1.12.1 | [sky-view_v1.12.1_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.12.1/sky-view_1.12.1_amd64.deb)  | 
+| **SkyView (Linux x64) .deb** |  v1.14.9 | [sky-view_v1.14.9_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.14.9/sky-view_1.14.9_amd64.deb)  | 
 
 
 - Download the `.deb` package:  
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.12.1/sky-view_1.12.1_amd64.deb
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.14.9/sky-view_1.14.9_amd64.deb
 ```
 - Install the package:  
 ```bash
-sudo dpkg -i sky-view_1.12.1_amd64.deb
+sudo dpkg -i sky-view_1.14.9_amd64.deb
 sudo apt-get install -f  # Install any missing dependencies
 ```  
 > ⚠️ Note: During installation, the package will automatically download and install the required Docker containers.
@@ -132,7 +139,7 @@ On Windows, SkyView is installed using the setup package:
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Windows x64)** |  v1.12.1 | [sky-view-win-installer.zip](https://github.com/impleotv/sky-view-release/releases/download/v1.12.1/sky-view-win-installer.zip)  | 
+| **SkyView (Windows x64)** |  v1.14.9 | [sky-view-win-installer.zip](https://github.com/impleotv/sky-view-release/releases/download/v1.14.9/sky-view-win-installer.zip)  | 
 
 
 
@@ -182,6 +189,7 @@ SkyView optional features are enabled by a license:
 | **Offline maps** | Download/Import maps and use them without Internet access |
 | **Error detection** | MPEG-TS and KLV integrity issues |
 | **Stream recasting** | MPEG-TS and Data stream recasting and file streaming |
+| **Flywheel** | Produce a continuous, normalized MPEG-TS output with KLV, regardless of whether a source stream is present. |
 | **Analytics** | Stream Analytics services |
 
 ### License restrictions
