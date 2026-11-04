@@ -39,14 +39,14 @@ OS: Linux x64.
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v1.22.1 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.22.1/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v1.22.2 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.22.2/sky-view-install.tar.gz)  | 
 
-*Released on 2026-11-03*
+*Released on 2026-11-04*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a pre-configured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.22.1/sky-view-install.tar.gz
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.22.2/sky-view-install.tar.gz
 tar xzf sky-view-install.tar.gz
 docker compose up -d
 ```
@@ -71,16 +71,16 @@ updates remain stable.
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64) .deb** |  v1.22.1 | [sky-view_v1.22.1_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.22.1/sky-view_1.22.1_amd64.deb)  | 
+| **SkyView (Linux x64) .deb** |  v1.22.2 | [sky-view_v1.22.2_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.22.2/sky-view_1.22.2_amd64.deb)  | 
 
 
 - Download the `.deb` package:  
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.22.1/sky-view_1.22.1_amd64.deb
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.22.2/sky-view_1.22.2_amd64.deb
 ```
 - Install the package:  
 ```bash
-sudo dpkg -i sky-view_1.22.1_amd64.deb
+sudo dpkg -i sky-view_1.22.2_amd64.deb
 sudo apt-get install -f  # Install any missing dependencies
 ```  
 > ⚠️ Note: During installation, the package will automatically download and install the required Docker containers.
@@ -139,7 +139,7 @@ On Windows, SkyView is installed using the setup package:
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Windows x64)** |  v1.22.1 | [sky-view-win-installer.zip](https://github.com/impleotv/sky-view-release/releases/download/v1.22.1/sky-view-win-installer.zip)  | 
+| **SkyView (Windows x64)** |  v1.22.2 | [sky-view-win-installer.zip](https://github.com/impleotv/sky-view-release/releases/download/v1.22.2/sky-view-win-installer.zip)  | 
 
 
 
@@ -230,3 +230,23 @@ In Firefox, pop-up windows (KLV and Map) may sometimes open blank. To resolve th
 
 
 *Please don't hesitate to contact us at support@impleotv.com should you have any questions.*
+
+### Compose platform selection
+
+Use Docker Compose 2.24.4 or newer and select a platform overlay:
+
+```bash
+# Native Linux with NVIDIA
+docker compose -f docker-compose.yml -f docker-compose.linux.yml -f docker-compose.nvidia.yml up -d
+```
+
+```powershell
+# Windows Docker Desktop/WSL2 with NVIDIA; create identity once
+$identity = (Get-CimInstance Win32_ComputerSystemProduct).UUID.ToLowerInvariant()
+[IO.File]::WriteAllText((Join-Path (Get-Location) 'host-machine-id'), "$identity`n")
+docker compose -f docker-compose.yml -f docker-compose.docker-desktop.yml -f docker-compose.nvidia.yml up -d
+```
+
+The native SkyView desktop app runs without Docker. Existing installations must
+retain the project name, data volume and hardware identity file. Add the platform
+file to old `COMPOSE_FILE` selections; the base is now shared.
