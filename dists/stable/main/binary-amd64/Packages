@@ -215,9 +215,9 @@ Maintainer: SkyView Team <support@impleotv.com>
 Depends: docker.io | docker-ce | docker-engine, docker-compose-plugin | docker-compose, systemd, ca-certificates
 Filename: pool/main/sky-view_1.22.2_amd64.deb
 Size: 4788
-MD5sum: 2546abf9786b29b7954a49dc2c2ee544
-SHA1: 4087c3544513273f44f13ae40790b25523850241
-SHA256: 7b709375dea2783edbee0a812dcd84298029584dcad5dd160b50ada9a59b2bfd
+MD5sum: 043064e797ea7a818d13d982c3f7ab34
+SHA1: b67d5f64582e53fd901104ce0abd80081eefda73
+SHA256: effb64dd3027bb40c39074b0b46a04f57283fe118e4224dad4ab818429f50ada
 Section: net
 Priority: optional
 Description: SkyView docker-compose bundle
