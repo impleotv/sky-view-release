@@ -39,22 +39,31 @@ OS: Linux x64.
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v1.23.2 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.23.2/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v1.24.2 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.24.2/sky-view-install.tar.gz)  | 
 
-*Released on 2026-11-12*
+*Released on 2026-11-16*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a pre-configured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.23.2/sky-view-install.tar.gz
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.24.2/sky-view-install.tar.gz
 tar xzf sky-view-install.tar.gz
+sudo bash ./setup-docker-host.sh
 docker compose up -d
 ```
 
 1. Unzip the file sky-view-install.tar.gz  
 2. Edit (customize) the .env file  
-3. Start the container - **docker compose up -d**
-4. Access the UI - Open your browser and navigate to [`http://localhost:8100`](`http://localhost:8100`)
+3. Configure the Linux Docker host - **sudo bash ./setup-docker-host.sh**
+4. Start the container - **docker compose up -d**
+5. Access the UI - Open your browser and navigate to [`http://localhost:8100`](`http://localhost:8100`)
+
+The host setup script persistently enables at least 4 MiB UDP receive/send
+buffers in `/etc/sysctl.d/90-sky-view-udp.conf`, preserving larger limits.
+It applies the limits immediately without restarting services. Preview the changes
+with `bash ./setup-docker-host.sh --dry-run`. Run it on the native Linux machine
+running Docker Engine (including a remote host or Jetson), outside containers.
+It does not configure Docker Desktop's managed Linux VM from a Windows WSL shell.
 
 That's it! For more deployment options and configuration details, see [Running SkyView with Docker](./running-docker.md).
 
@@ -71,16 +80,16 @@ updates remain stable.
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64) .deb** |  v1.23.2 | [sky-view_v1.23.2_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.23.2/sky-view_1.23.2_amd64.deb)  | 
+| **SkyView (Linux x64) .deb** |  v1.24.2 | [sky-view_v1.24.2_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.24.2/sky-view_1.24.2_amd64.deb)  | 
 
 
 - Download the `.deb` package:  
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.23.2/sky-view_1.23.2_amd64.deb
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.24.2/sky-view_1.24.2_amd64.deb
 ```
 - Install the package:  
 ```bash
-sudo dpkg -i sky-view_1.23.2_amd64.deb
+sudo dpkg -i sky-view_1.24.2_amd64.deb
 sudo apt-get install -f  # Install any missing dependencies
 ```  
 > ⚠️ Note: During installation, the package will automatically download and install the required Docker containers.
@@ -139,7 +148,7 @@ On Windows, SkyView is installed using the setup package:
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Windows x64)** |  v1.23.2 | [sky-view-win-installer.zip](https://github.com/impleotv/sky-view-release/releases/download/v1.23.2/sky-view-win-installer.zip)  | 
+| **SkyView (Windows x64)** |  v1.24.2 | [sky-view-win-installer.zip](https://github.com/impleotv/sky-view-release/releases/download/v1.24.2/sky-view-win-installer.zip)  | 
 
 
 
