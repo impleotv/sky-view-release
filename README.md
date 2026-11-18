@@ -5,18 +5,17 @@
   </a>
 </div>
 
-# SkyView player/recaster
+# SkyView STANAG 4609 Gateway
 
-**SkyView** is an application designed for live playback, recasting and analysis of **STANAG 4609** / mpegts video streams.  
-Built as a Progressive Web Application (**PWA**), SkyView can run seamlessly on your **local host**, **local network**, or in the
-**cloud**.  
-Users can install the **SkyView** front-end player directly on their desktop, tablet or mobile devices, enjoying a native-like experience.
+**SkyView** receives, processes, and distributes STANAG 4609 video and MISB KLV metadata. Connect live feeds over UDP, SRT, RTSP, or Unix domain sockets. Stream media files, record UDP feeds to PCAPNG, or replay PCAP and PCAPNG captures.
 
-SkyView is also available as a Windows desktop application.
+Route feeds to multiple destinations, publish them through the SkyView RTSP server with the Recast option, or monitor them in a browser with low-latency WebRTC. With the Recast and Flywheel options, SkyView can maintain MPEG-TS output with KLV during source interruptions.
+
+Run the SkyView server on Linux or Windows. Access it from a browser, install the interface as a Progressive Web App (PWA), or use the Windows x64 desktop application.
 
 ![SkyView](./images/main.png)
 
-More [info](https://impleotv.com/content/skyview/help/).
+See the [SkyView manual](https://impleotv.com/content/skyview/help/index.html) for setup and configuration.
 
 ## System Requirements
 
@@ -24,7 +23,7 @@ More [info](https://impleotv.com/content/skyview/help/).
 OS: Linux x64.
 
 #### Installation (using Docker Compose)
-**SkyView** is a STANAG 4609 player that ships as a single Docker container with an embedded web UI. Once deployed, you can access the interface from any browser and optionally install it as a Progressive Web App (PWA) for offline use and a native-like experience.
+For Docker deployments, SkyView runs in a container with an embedded web interface. Open the interface in a browser or install it as a Progressive Web App (PWA).
 
 #### Prerequisites
 
