@@ -12,7 +12,7 @@ Built as a Progressive Web Application (**PWA**), SkyView can run seamlessly on 
 **cloud**.  
 Users can install the **SkyView** front-end player directly on their desktop, tablet or mobile devices, enjoying a native-like experience.
 
-SkyView is also available as a Windows desktop application.
+SkyView is also available as a Windows desktop application. Find the latest compatible packages and previous versions on the [SkyView downloads page](https://impleotv.github.io/sky-view-release/).
 
 ![SkyView](./images/main.png)
 
@@ -39,14 +39,14 @@ OS: Linux x64.
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64)** |  v1.24.3 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.24.3/sky-view-install.tar.gz)  | 
+| **SkyView (Linux x64)** |  v1.25.0 | [sky-view-install.tar.gz](https://github.com/impleotv/sky-view-release/releases/download/v1.25.0/sky-view-install.tar.gz)  |
 
 *Released on 2026-11-19*
 
 > ⚠️ The docker-compose.yml file included with the installation contains a pre-configured reverse proxy (Caddy). If you don't need it or prefer to use a different service, simply remove the caddy service from the Docker Compose file.
 
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.24.3/sky-view-install.tar.gz
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.25.0/sky-view-install.tar.gz
 tar xzf sky-view-install.tar.gz
 sudo bash ./setup-docker-host.sh
 docker compose up -d
@@ -80,16 +80,16 @@ updates remain stable.
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Linux x64) .deb** |  v1.24.3 | [sky-view_v1.24.3_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.24.3/sky-view_1.24.3_amd64.deb)  | 
+| **SkyView (Linux x64) .deb** |  v1.25.0 | [sky-view_v1.25.0_amd64.deb](https://github.com/impleotv/sky-view-release/releases/download/v1.25.0/sky-view_1.25.0_amd64.deb)  |
 
 
 - Download the `.deb` package:  
 ```bash
-wget https://github.com/impleotv/sky-view-release/releases/download/v1.24.3/sky-view_1.24.3_amd64.deb
+wget https://github.com/impleotv/sky-view-release/releases/download/v1.25.0/sky-view_1.25.0_amd64.deb
 ```
 - Install the package:  
 ```bash
-sudo dpkg -i sky-view_1.24.3_amd64.deb
+sudo dpkg -i sky-view_1.25.0_amd64.deb
 sudo apt-get install -f  # Install any missing dependencies
 ```  
 > ⚠️ Note: During installation, the package will automatically download and install the required Docker containers.
@@ -148,7 +148,7 @@ On Windows, SkyView is installed using the setup package:
 
 |          | Version             | Download link                                                           | 
 |:---------|:-------------------:|:------------------------------------------------------------------------|
-| **SkyView (Windows x64)** |  v1.24.3 | [sky-view-win-installer.zip](https://github.com/impleotv/sky-view-release/releases/download/v1.24.3/sky-view-win-installer.zip)  | 
+| **SkyView (Windows x64)** |  v1.25.0 | [sky-view-win-installer.zip](https://github.com/impleotv/sky-view-release/releases/download/v1.25.0/sky-view-win-installer.zip)  |
 
 
 
