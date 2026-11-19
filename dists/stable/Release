@@ -5,20 +5,20 @@ Codename: stable
 Architectures: amd64
 Components: main
 Description: SkyView APT repository
-Date: Mon, 16 Nov 2026 10:18:02 +0000
+Date: Thu, 19 Nov 2026 09:22:01 +0000
 MD5Sum:
- 4f5fd47fcbfbf7f15b50b53c1881d9d5               38 Release
- e37a58f701d35572775556b431c5a291            27960 main/binary-amd64/Packages
- f11a91fcdafcd2c5b876f5d6d02ab659             5028 main/binary-amd64/Packages.gz
+ 04ebc47bfc1919d72d53bd2570f7d0d9               38 Release
+ 207394d5be6f3e17599df2c40768bffb            28556 main/binary-amd64/Packages
+ b2a209a6c0ad7038a0772e249bd5c473             5122 main/binary-amd64/Packages.gz
 SHA1:
- f23351383978cda07b5733adc3b0ea5ff3f9fd93               38 Release
- 39701fdf036e688a06c30f650ea8cdb13450a850            27960 main/binary-amd64/Packages
- d2e7575fdc46e6843bdd0968f8fe727a9c743081             5028 main/binary-amd64/Packages.gz
+ 2597bbf63b91a3862aa7cb42452ec14c868c3310               38 Release
+ 404af4c106497e4682160a4ace5599662a9a2aa0            28556 main/binary-amd64/Packages
+ 04f27f682f6bb4c2174124989256fd0207c9ffdb             5122 main/binary-amd64/Packages.gz
 SHA256:
- 1f50f411f5c7a1c81b86e679ac374a2857a00ebfb9495cb34681617b8e6d0176               38 Release
- 7ee0e0fa129f77527d43e26155dc1497378399ddb8040b10add2affb8b57a64a            27960 main/binary-amd64/Packages
- 68907782b9a537a424540aa4cfc7b8d05235850dbc37fd855130e514102f01a1             5028 main/binary-amd64/Packages.gz
+ d8d776cd6b6e51819e9205ddb01ec3e593d0d1aae75efafb51643dfe1345186a               38 Release
+ 2e404a643a61b54702c136923854fad78ae63d945671015fd776f909aff9be33            28556 main/binary-amd64/Packages
+ bae38e14c25b81c46edecc830b82e2084d1f9fa4aa63e9254d8bd318bb927728             5122 main/binary-amd64/Packages.gz
 SHA512:
- aff87d312ac17bc0214319e25459786fb63d74c4876a7752878ff3559cdb23ec01db27177f702c62342c1ea60f55bafa3614af221d910bc835a8f320dbbcd785               38 Release
- fabdd2698f133c411eba8e22a47afd1ebb83dbcede511e0dd2dc4855efcc49ca35002ef8b8c78c10b9f710dea30d400d6ab5d2ef46a4d374a2d14767c6273261            27960 main/binary-amd64/Packages
- 7620e477d478d775c65d8690fe0a8be546110f9861d7e38b52508aa26a371846408b189d4834aaf0744702b894bb491c4a0ed7227044ac6cd7a70763aab1168b             5028 main/binary-amd64/Packages.gz
+ 396ac1445c0054256e4cc6ac6c44bf56f3f087cf692801b06363834b2969f44a8e9c57b3811ddc41c728d2e2006883147eaad5bf90659ad607c25c7d6a54d073               38 Release
+ 1b83df3eb314598d142e023dc1e9ee0cf757e3e6116d217cd1edca2c519bf8bc7e32e3e242cd9577c32deb85bc449772d74f5ac9514c51b4dbe82d948d2b573e            28556 main/binary-amd64/Packages
+ 044838b73581a1ff42e2d3af6e7c0783f421d2b83fbe460883a1b39e36b220ff3ed0183132c531831b2086ce57abc6aa00b841c699aaa3deeba52aeb58afc8b4             5122 main/binary-amd64/Packages.gz
